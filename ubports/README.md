@@ -20,7 +20,7 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
 > `sudo tar --extract --gzip --file dist/pypy-aarch64.tar.gz --directory /opt/`
 2. link everything from the pypy bin folder to `/usr/local/bin`
 > `sudo ln -s /opt/pypy-aarch64/bin/* /usr/local/bin/`
-3. that's it, now install the [shiftscheduler click](dist/shiftscheduler.knackwurstking_1.0.0_arm64.click)
+3. that's it, now install the [shiftscheduler click](dist/shiftscheduler.knackwurstking_1.0.0_all.click)
 package on the phone
 4. or with clickable on pc:
 > `clickable --arch arm64`
