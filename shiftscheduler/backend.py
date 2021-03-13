@@ -134,7 +134,7 @@ def html_month():
         return make_response("wrong json data", 400)
 
     if not c.start_date:
-        return make_response("missing 'start_date' in configuration", 404)
+        return make_response("missing 'start_date' in Settings", 404)
 
     year = cli_data.get('year') or datetime.now().year
     month = cli_data.get('month') or datetime.now().month

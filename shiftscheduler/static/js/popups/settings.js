@@ -35,8 +35,7 @@ function settingsSave() {
     data: JSON.stringify(setup),
     contentType: "application/json",
     success: function () {
-      refreshScreen(CACHE.month, CACHE.year);
-      settingsClose();
+      refreshScreen(CACHE.month, CACHE.year, settingsClose);
     },
     error: function (jq) {
       console.warn(jq.responseText);

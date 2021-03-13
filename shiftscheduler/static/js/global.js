@@ -18,7 +18,7 @@ const CACHE = {
 
 
 // <<- refreshScreen: create the grid for 'month' in 'year'
-function refreshScreen(month, year) {
+function refreshScreen(month, year, callback) {
   /* Main function to update the whole screen */
   if (month > 11) {
     // next year
@@ -42,6 +42,9 @@ function refreshScreen(month, year) {
     }),
     contentType: "application/json",
     success: function (data) {
+      if (callback) {
+        callback();
+      }
       /* set new grid to body */
       $('.grid-container-body').html(data.html);
 
@@ -59,7 +62,12 @@ function refreshScreen(month, year) {
     },
     error: function (jq) {
       console.warn(jq.responseText);
-      settingsOpen();
+
+      if ($('div.settings-container').css("display") !== 'none') {
+        alert(jq.responseText);
+      } else {
+        settingsOpen();
+      }
     }
   });
 }
