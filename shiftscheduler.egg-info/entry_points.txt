@@ -1,0 +1,3 @@
+[gui_scripts]
+shiftscheduler = shiftscheduler:entry_point
+

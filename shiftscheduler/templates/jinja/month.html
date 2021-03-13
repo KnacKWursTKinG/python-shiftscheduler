@@ -1,0 +1,12 @@
+{% for _week in month %}
+  {% for _date, _step, _note in _week %}
+    {% if _date != 0 %}
+      <div id='[{{_date}}, "{{_step}}"]' class="{{ 'note-marker' if _note else '' }} {{ 'today-marker' if today == _date else '' }} grid-item-body grid-item">
+        <div class="grid-item-body-day">{{ _date }}</div>
+        <div class="grid-item-body-step">{{ _step }}</div>
+      </div>
+    {% else %}
+      <div class="grid-item-empty grid-item"></div>
+    {% endif %}
+  {% endfor %}
+{% endfor %}

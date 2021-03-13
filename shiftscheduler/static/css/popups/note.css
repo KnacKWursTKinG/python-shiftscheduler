@@ -1,0 +1,85 @@
+div.note {
+  display: inline-flex;
+  position: fixed;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border-style: groove;
+  border-color: var(--popup-border);
+
+  background-color: var(--popup-bg);
+
+  flex-direction: column;
+
+  z-index: 2;
+}
+
+
+h1.note-headline {
+  margin: 1px 1px 1px 1px;
+  border-bottom: 2px solid var(--popup-border);
+  width: 100%;
+  text-align: center;
+}
+
+
+label#note-step-label {
+  font-weight: bolder;
+
+  color: var(--note-step-label);
+}
+
+
+@media (orientation: landscape) {
+  div.note {
+    padding: 1vh;
+    height: 65vh;
+  }
+
+  textarea#note-textarea {
+    width: 60vh;
+    height: 20vh;
+
+    font-size: 4.5vh;
+  }
+
+  button.note-btn {
+    font-size: 4vh;
+  }
+
+  label#note-step-label {
+    font-size: 4vh;
+  }
+
+  select#note-step-select {
+    font-size: 4vh;
+  }
+}
+
+
+@media (orientation: portrait) {
+  div.note {
+    padding: 1vw;
+    height: 65vw;
+  }
+
+  textarea#note-textarea {
+    width: 60vw;
+    height: 20vw;
+
+    font-size: 4.5vw;
+  }
+
+  button.note-btn {
+    font-size: 4vw;
+  }
+
+  label#note-step-label {
+    font-size: 4vw;
+  }
+
+  select#note-step-select {
+    font-size: 4vw;
+  }
+}

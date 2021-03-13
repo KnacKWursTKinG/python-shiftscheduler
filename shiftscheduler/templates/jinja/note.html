@@ -1,0 +1,22 @@
+<div class="note">
+  <h1 class="note-headline">{{ year }}/{{ month }}/{{ day }}</h1>
+  <div class="note-step">
+    <label id="note-step-label">Step: </label>
+    <select id="note-step-select">
+      {% for _option in select %}
+        {% if _option == step %}
+          <option value="{{ _option }}" selected>{{ _option }}</option>
+        {% else %}
+          <option value="{{ _option }}">{{ _option }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <textarea id="note-textarea">{{ note or '' }}</textarea>
+  <div class="note-btn-group">
+    <button onclick="noteBtnSubmit('{{step}}', {{year}}, {{month -1}}, {{day}})" id="note-submit" class="note-btn">OK</button>
+    <button onclick="noteBtnClear('{{step}}', {{year}}, {{month - 1}}, {{day}})" id="note-clear" class="note-btn">Clear Note</button>
+    <button onclick="noteBtnClearAll({{year}}, {{month - 1}}, {{day}})" id="note-clear-all" class="note-btn">Clear All</button>
+    <button onclick="noteClose()" id="note-popup-close" class="note-btn">Cancel</button>
+  </div>
+</div>

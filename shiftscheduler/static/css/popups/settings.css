@@ -1,0 +1,100 @@
+div.settings {
+  display: inline-flex;
+  position: relative;
+
+  max-width: 350px;
+  max-height: 90vh;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: auto;
+
+  border-style: groove;
+  border-color: var(--popup-border);
+  background-color: var(--popup-bg);
+
+  z-index: 2;
+}
+
+
+div.settings::-webkit-scrollbar {
+  display: none;
+}
+
+
+h1.settings-headline {
+  margin: 1px 1px 1px 1px;
+  width: 100%;
+  min-height: 40px;
+  text-align: center;
+
+  border-bottom: 2px solid var(--popup-border);
+  color: var(--settings-h1);
+}
+
+h2.settings-headline {
+  margin: 1px 1px 1px 1px;
+  width: 100%;
+  text-align: left;
+
+  border-bottom: 2px groove var(--popup-border);
+  background-color: var(--settings-h2-bg);
+  color: var(--settings-h2);
+}
+
+
+div.settings-group {
+  display: inline-flex;
+  position: relative;
+
+  width: 100%;
+  min-height: 50px;
+
+  flex-direction: column;
+}
+
+
+label.settings-group-key {
+  width: 100%;
+  text-align: center;
+
+  color: var(--settings-key);
+}
+
+
+input.settings-group-input {
+  width: 100%;
+  text-align: center;
+}
+
+
+button.settings-btn {
+  width: 100%;
+  min-height: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+@media (orientation: landscape) {
+  div.settings {
+    width: 40vw;
+  }
+
+  label.settings-group-key {
+    font-size: 4vh;
+  }
+}
+
+
+@media (orientation: portrait) {
+  div.settings {
+    width: 50vh;
+    max-width: 99vw;
+  }
+
+  label.settings-group-key {
+    font-size: 4vw;
+  }
+}

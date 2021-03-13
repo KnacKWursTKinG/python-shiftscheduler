@@ -1,0 +1,32 @@
+:root {
+  --black: rgba(0,0,0);
+  --white: rgba(255,255,255);
+  --red: rgba(255,0,0);
+  --gray: rgba(128,128,128);
+  --dark-gray: rgba(85,85,85);
+
+  --border: rgb(255,255,255);
+  --border-today: rgb(255,140,0);
+
+  --shift-step: rgb(160,160,160);
+  --shift-step-bg: rgba(50,50,50, .7);
+
+  --popup-bg: rgba(50,50,50,.8);
+  --popup-border: rgb(0,0,0);
+
+  --note-step-label: rgba(200,200,200,1);
+  --note-marker: rgba(150,0,0,.3);
+
+  --settings-key: rgba(225,225,225,1);
+  --settings-h1: rgba(200,200,200,1);
+  --settings-h2: rgba(150,150,150,1);
+  --settings-h2-bg: rgba(100,0,0,.5);
+
+  background-color: var(--black);
+  color: var(--white);
+
+  overflow: hidden;
+
+  --webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

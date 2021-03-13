@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Shift Scheduler
+Exec=python -m shiftscheduler
+Icon=shiftscheduler
+Type=Application
+Terminal=false

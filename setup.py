@@ -3,27 +3,32 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="...",
-    description="...",
+    name="shiftscheduler",
+    description="A flask & webview shiftscheduler app.",
 
     packages=find_packages(),
     include_package_data=True,
 
     entry_points={
         'console_scripts': [
-            '<command> = <module.path:entry_point>'
+            'shiftscheduler = shiftscheduler:entry_point'
         ]
     },
 
+    data_files=[
+        ('share/applications', ['shiftscheduler.desktop']),
+        ('share/icons', ['icons/shiftscheduler.png'])
+    ],
+
     install_requires=[
-        '<pip-dep>',
-        '<module> @ git+https://github.com/<user>/<repo>@<branch>'
+        'flask',
+        'pywebview'
     ],
 
     version="0.0.1",
-    author="...",
-    author_email='...',
+    #author="...",
+    #author_email='...',
     maintainer='Udo Bauer',
-    maintainer_email='...',
-    url='...',
+    maintainer_email='knackwurstking.tux@gmail.com',
+    url='',
 )

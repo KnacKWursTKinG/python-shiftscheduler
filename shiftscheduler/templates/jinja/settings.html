@@ -1,0 +1,21 @@
+<div class="settings">
+  <h1 class="settings-headline">Settings</h1>
+
+  {% for section in config %}
+    <h2 class="settings-headline">{{ section }}</h2>
+
+    {% for key, value in config[section].items() %}
+      <div class="settings-group">
+        <label class="settings-group-key">{{ key }}</label>
+        <input class="settings-group-input" name="{{section}}:{{key}}" value="{{ value }}">
+      </div>
+    {% endfor %}
+
+    <br/>
+  {% endfor %}
+
+  <br/>
+
+  <button onclick="settingsSave()" id="settings-save" class="settings-btn">Save</button>
+  <button onclick="settingsClose()" id="settings-close" class="settings-btn">Close</button>
+</div>

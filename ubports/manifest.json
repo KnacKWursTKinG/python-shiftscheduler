@@ -1,0 +1,15 @@
+{
+    "name": "shiftscheduler.knackwurstking",
+    "description": "A simple shiftscheduler using my pypy click repo + flask + html/css/js and a webview on ubports phone.",
+    "architecture": "@CLICK_ARCH@",
+    "title": "shiftscheduler",
+    "hooks": {
+        "shiftscheduler": {
+            "apparmor": "shiftscheduler.apparmor",
+            "desktop":  "shiftscheduler.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Udo Bauer <knackwurstking.tux@gmail.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
