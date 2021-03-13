@@ -22,10 +22,10 @@ setup(
 
     install_requires=[
         'flask',
-        'pywebview'
+        'pywebview[qt]'
     ],
 
-    version="0.10.1",
+    version="0.10.2",
     #author="...",
     #author_email='...',
     maintainer='Udo Bauer',

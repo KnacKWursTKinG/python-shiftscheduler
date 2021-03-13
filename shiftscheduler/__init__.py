@@ -29,4 +29,4 @@ def entry_point():
 
         App.logger.level = logging.DEBUG
         webview.create_window("Shift Scheduler", App)
-        webview.start(debug=True)
+        webview.start(debug=True, gui="qt")
