@@ -5,7 +5,7 @@ from threading import Thread
 from os import system
 
 from .config import c
-from .routes import App
+from .backend import App
 
 
 def entry_point():

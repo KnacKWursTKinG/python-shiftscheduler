@@ -48,14 +48,13 @@ function noteBtnSubmit(orgStep, year, month, day) {
     }),
     success: function () {
       refreshScreen(month, year);
+      noteClose();
     },
     error: function (jq) {
       console.warn(jq.responseText);
       alert(jq.responseText);
     }
   });
-
-  $('div.note-container').css("display", "none");
 }
 
 
@@ -73,14 +72,13 @@ function noteBtnClear (step, year, month, day) {
     }),
     success: function () {
       refreshScreen(month, year);
+      noteClose();
     },
     error: function (jq) {
       console.warn(jq.responseText);
       alert(jq.responseText);
     }
   });
-
-  $('div.note-container').css("display", "none");
 }
 
 
@@ -94,12 +92,11 @@ function noteBtnClearAll (year, month, day) {
     }),
     success: function () {
       refreshScreen(month, year);
+      noteClose();
     },
     error: function (jq) {
       console.warn(jq.responseText);
       alert(jq.responseText);
     }
   });
-
-  $('div.note-container').css("display", "none");
 }

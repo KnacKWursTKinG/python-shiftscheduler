@@ -59,7 +59,7 @@ function refreshScreen(month, year) {
     },
     error: function (jq) {
       console.warn(jq.responseText);
-      alert(jq.responseText);
+      settingsOpen();
     }
   });
 }

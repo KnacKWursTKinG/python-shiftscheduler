@@ -4,7 +4,7 @@ from datetime import date, datetime
 
 from flask import Flask, render_template, make_response, jsonify, request
 
-from .config import c
+from .config import c, save_user_config, load_configs
 from .cache import Cache
 
 
@@ -97,6 +97,7 @@ def chaching():
 # ->>
 
 
+# <<- '/config' ["POST"] store configuration
 @App.route("/config", methods=['POST'])
 def config():
     _config = request.get_json()
@@ -104,9 +105,22 @@ def config():
     if not isinstance(_config, dict):
         return make_response("Data format should be a json dict!", 400)
 
-    c.ini.read_dict(_config)
+    _config_dict = dict()
+    for _key, _value in _config.items():
+        _group, _group_key = str(_key).split(':', 1)
+        _value = str(_value).strip()
+
+        if _group not in _config_dict:
+            _config_dict[_group] = dict()
+
+        _config_dict[_group][_group_key] = _value
+
+    c.ini.read_dict(_config_dict)
+    save_user_config()
+    load_configs()
 
     return make_response(jsonify(None), 200)
+# ->>
 
 
 # <<- '/html/month' ["POST"] generate grid for requested month
@@ -139,7 +153,7 @@ def html_month():
 # ->>
 
 
-# <<- '/html/note' ["POST"] generate note popup for the requested day
+# <<- '/html/note' ["POST"] get the note page (html code)
 @App.route("/html/note", methods=['POST'])
 def html_note():
     cli_data = request.get_json()
@@ -169,13 +183,31 @@ def html_note():
 # ->>
 
 
+# <<- '/html/settings' ["GET"] get the settings page (html-code)
 @App.route("/html/settings", methods=['GET'])
 def html_settings():
+    def get_config_data_dict():
+        config_dict = dict()
+
+        for group, _data in c.ini.__dict__['_sections'].items():
+            if group not in config_dict:
+                config_dict[group] = dict()
+
+            for key, value in _data.items():
+                if 'placeholder_' in key:
+                    key = key.split('_', 1)[-1]
+                    config_dict[group][key] = (config_dict[group].get(key, (None, None))[0], value)
+                else:
+                    config_dict[group][key] = (value, config_dict[group].get(key, (None, None))[1])
+
+        return config_dict
+
     return make_response(
         jsonify({
             'html': render_template(
                 'jinja/settings.html',
-                config=c.ini.__dict__['_sections']
+                config=get_config_data_dict()
             )
         }), 200
     )
+# ->>

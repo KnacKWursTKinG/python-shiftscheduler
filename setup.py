@@ -25,7 +25,7 @@ setup(
         'pywebview'
     ],
 
-    version="0.9.0",
+    version="0.10.0",
     #author="...",
     #author_email='...',
     maintainer='Udo Bauer',

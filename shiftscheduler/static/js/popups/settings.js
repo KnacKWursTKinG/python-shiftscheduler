@@ -23,5 +23,24 @@ function settingsClose() {
 
 
 function settingsSave() {
-  // TODO iter elements from class 'popup-settings-input'
+  let setup = {};
+
+  $(".settings-group-input").each(function () {
+    setup[this.name] = this.value;
+  });
+
+  $.ajax({
+    url: '/config',
+    type: 'POST',
+    data: JSON.stringify(setup),
+    contentType: "application/json",
+    success: function () {
+      refreshScreen(CACHE.month, CACHE.year);
+      settingsClose();
+    },
+    error: function (jq) {
+      console.warn(jq.responseText);
+      alert(jq.responseText);
+    }
+  });
 }

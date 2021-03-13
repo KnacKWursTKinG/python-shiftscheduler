@@ -4,11 +4,13 @@
   {% for section in config %}
     <h2 class="settings-headline">{{ section }}</h2>
 
-    {% for key, value in config[section].items() %}
-      <div class="settings-group">
-        <label class="settings-group-key">{{ key }}</label>
-        <input class="settings-group-input" name="{{section}}:{{key}}" value="{{ value }}">
-      </div>
+    {% for key, (value, placeholder) in config[section].items() %}
+      {% if 'placeholder_' not in key %}
+        <div class="settings-group">
+          <label class="settings-group-key">{{ key }}</label>
+          <input class="settings-group-input" name="{{section}}:{{key}}" value="{{ value or '' }}" placeholder="{{ placeholder or '' }}">
+        </div>
+      {% endif %}
     {% endfor %}
 
     <br/>
