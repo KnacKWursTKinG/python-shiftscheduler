@@ -25,7 +25,7 @@ setup(
         'pywebview[qt]'
     ],
 
-    version="0.10.2",
+    version="0.11.2",
     #author="...",
     #author_email='...',
     maintainer='Udo Bauer',

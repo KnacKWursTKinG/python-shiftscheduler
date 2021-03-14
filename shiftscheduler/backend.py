@@ -156,6 +156,13 @@ def html_month():
 # <<- '/html/note' ["POST"] get the note page (html code)
 @App.route("/html/note", methods=['POST'])
 def html_note():
+    def my_set(iterable):
+        new_list = list()
+        for item in iterable:
+            if item not in new_list:
+                new_list.append(item)
+        return new_list
+
     cli_data = request.get_json()
 
     if not isinstance(cli_data, dict):
@@ -176,7 +183,7 @@ def html_note():
                 month=cli_data['month'],
                 day=cli_data['day'],
                 note=note,
-                select=list(set(c.steps))
+                select=my_set(c.steps + c.optional_steps)
             )
         }), 200
     )

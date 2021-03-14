@@ -32,6 +32,7 @@ def load_configs():
 
     # parse config
     c.steps = c.ini.get('shiftscheduler', 'steps', fallback='').strip().split(',')
+    c.optional_steps = list(c.ini.get('shiftscheduler', 'opt_steps', fallback='').strip().split(','))
 
     try:
         # remove '0' from date (Ex. 2021/02/01 -> 2021/2/1)
@@ -69,6 +70,7 @@ class c():
     }
 
     steps: list = list()
+    optional_steps = list()
     start_date: date = None
 
     @classmethod
