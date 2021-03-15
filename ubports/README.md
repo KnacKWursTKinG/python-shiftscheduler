@@ -8,36 +8,25 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
   * Tested Devices:
     * Volla Phone
   * Arch: aarch64
-  * Flask Import Duration: 2.4 seconds
 
   > prepared pypy package: [pypy-aarch64.tar.gz](dist/pypy-aarch64.tar.gz)<br/>
-  > see: *https://www.pypy.org/*
+  > see: *https://www.pypy.org/*<br/>
   > see: *https://www.pypy.org/download.html*
 
 
 ## Install Info:
-1. You need an **pypy** interpreter with the **flask** module, i prepared a package for that.
-> `sudo tar --extract --gzip --file dist/pypy-aarch64.tar.gz --directory /opt/`
-2. link everything from the pypy bin folder to `/usr/local/bin`
-> `sudo ln -s /opt/pypy-aarch64/bin/* /usr/local/bin/`
-3. that's it, now install the [shiftscheduler click](dist/shiftscheduler.knackwurstking_1.0.0_all.click)
-package on the phone
-4. or with clickable on pc:
-> `clickable --arch arm64`
 
-### Notes:
-* Python3.5 is not an option for me, so i use the pypy interpreter on my phone.
-* I only prepared an pypy package for *aarch64*, so `--arch` is arm64 for now.
-* Will work on PC too (uses `pywebview` and `flask` on PC)
-> `python www/main.py`
+1. Install the pypy interpreter (just unpack [pypy.arm64.tar.gz](dist/pypy.arm64.tar.gz) into your home folder.)
+> `tar --extract --gzip --file pypy.arm64.tar.gz --directory ~/`
+2. And `sudo ln -s ~/pypy.arm64/bin/* /usr/local/bin/` (for this step you need to make the image writable)
+> Note: pypy version is python3.7, and has some preinstalled modules<br/>
+> see `ls ~/pypy.arm64/site-packages`
+3. Test with `pypy --version` & `pypy -m pip --version`
+> [Fix the libssl.so.1.1 error](#workaround-libssl)
 
 
 ## TODO
-* graphical configuraion
-  * for now the *config.ini* file can be used for that
-  * location after the first start *`~/.config/shiftscheduler.knackwurstking/config.ini`*
-  * and on pc *`~/.config/shiftscheduler/config.ini`*
-* add *'opt_steps'* to *'config.ini'* (`opt_steps = U,UP,K`)
+
 * write a workaroud for the missing **libssl.so.1.1** on ubports phone
 
 
@@ -45,6 +34,12 @@ package on the phone
 <img src="doc/screenshots/landscape.png" width="700"></img><br/>
 <img src="doc/screenshots/portrait-note.png" width="350"></img>
 <img src="doc/screenshots/portrait.png" width="350"></img>
+
+
+<a name="workaroud-libssl"></a>
+## Fix the libssl.so error with `pypy -m pip install`
+
+@TODO: download, compile, install, link files
 
 
 ## License
