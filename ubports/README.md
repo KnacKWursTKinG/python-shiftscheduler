@@ -23,7 +23,7 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
   > Note: pypy version is python3.7, and has some preinstalled modules<br/>
   > see `ls ~/pypy.arm64/site-packages`
 3. Test with `pypy --version` & `pypy -m pip --version`
-  > [Fix the libssl.so.1.1 error](#workaround-libssl)
+  > [Fix the libssl.so.1.1 error](#libssl)
 
 
 ## TODO
@@ -37,7 +37,7 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
 <img src="doc/screenshots/portrait.png" width="350"></img>
 
 
-<a name="workaroud-libssl"></a>
+<a name="libssl"/>
 ## Fix the libssl.so error with `pypy -m pip install`
 
 @TODO: download, compile, install, link files
