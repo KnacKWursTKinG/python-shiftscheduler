@@ -17,12 +17,13 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
 ## Install Info:
 
 1. Install the pypy interpreter (just unpack [pypy.arm64.tar.gz](dist/pypy.arm64.tar.gz) into your home folder.)
-> `tar --extract --gzip --file pypy.arm64.tar.gz --directory ~/`
+  * `wget https://raw.githubusercontent.com/KnacKWursTKinG/python-shiftscheduler/main/ubports/dist/pypy.arm64.tar.gz`
+  * `tar --extract --gzip --file pypy.arm64.tar.gz --directory ~/`
 2. And `sudo ln -s ~/pypy.arm64/bin/* /usr/local/bin/` (for this step you need to make the image writable)
-> Note: pypy version is python3.7, and has some preinstalled modules<br/>
-> see `ls ~/pypy.arm64/site-packages`
+  > Note: pypy version is python3.7, and has some preinstalled modules<br/>
+  > see `ls ~/pypy.arm64/site-packages`
 3. Test with `pypy --version` & `pypy -m pip --version`
-> [Fix the libssl.so.1.1 error](#workaround-libssl)
+  > [Fix the libssl.so.1.1 error](#workaround-libssl)
 
 
 ## TODO
