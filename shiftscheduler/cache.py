@@ -17,8 +17,7 @@ class CacheHandler():
     }
     '''
 
-    def __init__(self, path: str = c.platform, auto_store: bool = True):
-        self.path = path
+    def __init__(self, auto_store: bool = True):
         self.auto_store = auto_store
 
     def get(self, _date: str) -> dict:
