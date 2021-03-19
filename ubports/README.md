@@ -14,7 +14,7 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
   > see: *https://www.pypy.org/download.html*
 
 
-## Install Info:
+## Install Info: (pypy interpreter)
 
 1. Install the pypy interpreter (just unpack [pypy.arm64.tar.gz](dist/pypy.arm64.tar.gz) into your home folder.)
   * `wget https://raw.githubusercontent.com/KnacKWursTKinG/python-shiftscheduler/main/ubports/dist/pypy.arm64.tar.gz`
