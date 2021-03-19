@@ -20,10 +20,14 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
   * `wget https://raw.githubusercontent.com/KnacKWursTKinG/python-shiftscheduler/main/ubports/dist/pypy.arm64.tar.gz`
   * `tar --extract --gzip --file pypy.arm64.tar.gz --directory ~/`
 2. And `sudo ln -s ~/pypy.arm64/bin/* /usr/local/bin/` (for this step you need to make the image writable)
-  > Note: pypy version is python3.7, and has some preinstalled modules<br/>
+  > Note: pypy (python3.7) has some preinstalled modules<br/>
   > see `ls ~/pypy.arm64/site-packages`
 3. Test with `pypy --version` & `pypy -m pip --version`
-  > [Fix the libssl.so.1.1 error](#libssl)
+
+
+### missing libssl.so.1.1:
+
+@ToDo ...
 
 
 ## TODO
@@ -35,12 +39,6 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
 <img src="doc/screenshots/landscape.png" width="700"></img><br/>
 <img src="doc/screenshots/portrait-note.png" width="350"></img>
 <img src="doc/screenshots/portrait.png" width="350"></img>
-
-
-<a name="libssl"/>
-## Fix the libssl.so error with `pypy -m pip install`
-
-@TODO: download, compile, install, link files
 
 
 ## License
