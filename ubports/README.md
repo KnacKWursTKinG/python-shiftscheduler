@@ -13,31 +13,57 @@ Uses pypy (python3.7) as interpreter to run a flask server and start a webview<b
   > see: *https://www.pypy.org/*<br/>
   > see: *https://www.pypy.org/download.html*
 
+## Install libssl.so.1.1 & python3.9
 
-## Install Info: (pypy interpreter)
-
-1. Install the pypy interpreter (just unpack [pypy.arm64.tar.gz](dist/pypy.arm64.tar.gz) into your home folder.)
+Install dependencies
 ```bash
-wget https://raw.githubusercontent.com/KnacKWursTKinG/python-shiftscheduler/main/ubports/dist/pypy.arm64.tar.gz
-tar --extract --gzip --file pypy.arm64.tar.gz --directory ~/
+sudo apt install build-essential gcc git zlib1g zlib1g-dev
 ```
 
-2. And link the pypy bin folder to /usr/local/bin (for this step you need to make the image writable)
+### missing libssl.so.1.1: (will occur if you try to install somethings via pip)
+
 ```bash
-sudo ln -s home/phablet/pypy.arm64/bin/* /usr/local/bin/
+# Download libssl1.1 (openssl)
+wget https://www.openssl.org/source/openssl-1.1.1.tar.gz
+# extract deb package
+tar -xvzf openssl-1.1.1.tar.gz
+cd openssl-1.1.1/
+./Configure linux-aarch64 --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+make
+sudo make install
+sudo echo 'LD_LIBRARY_PATH=/usr/local/ssl/lib:${LD_LIBRARY_PATH}' >> /etc/environment
 ```
 
-3. Test with `pypy --version` & `pypy -m pip --version`
+### Python3.9 (from source)
+
+```bash
+git clone -b 3.9 https://github.com/python/cpython.git
+cd cpython
+
+# check if you are in the 3.9 branch
+git branch
+
+./configure --prefix /usr/local/ --enable-optimizations
+make
+sudo make altinstall
+
+# check
+python3.9 --version
+python3.9 -m pip --version
+```
 
 
-### missing libssl.so.1.1:
+## Install python Dependencies
 
-@ToDo ...
+* flask
+```bash
+python3.9 -m pip install flask
+```
 
+## Install click package
 
-## TODO
-
-* write a workaroud for the missing **libssl.so.1.1** on ubports phone
+1. run `clickable` command inside the ubports directory (connect phone to pc before)
+2. prepared package [here](dist/) (for install from phone)
 
 
 ## Screenshots

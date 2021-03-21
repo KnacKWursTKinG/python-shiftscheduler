@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=shiftscheduler
-Exec=pypy shiftscheduler
+Exec=python3.9 shiftscheduler
 Icon=assets/icon.png
 Terminal=false
 Type=Application
