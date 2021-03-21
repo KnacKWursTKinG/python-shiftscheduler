@@ -62,8 +62,9 @@ python3.9 -m pip install flask
 
 ## Install click package
 
-1. run `clickable` command inside the ubports directory (connect phone to pc before)
-2. prepared package [here](dist/) (for install from phone)
+1. adb: run `clickable` command inside the ubports directory (connect phone to pc before)
+2. ssh: `clickable --ssh <ip>`
+3. prepared package [here](dist/) (for install from phone)
 
 
 ## Screenshots
