@@ -31,7 +31,13 @@ cd openssl-1.1.1/
 ./Configure linux-aarch64 --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
 make
 sudo make install
-sudo echo 'LD_LIBRARY_PATH=/usr/local/ssl/lib:${LD_LIBRARY_PATH}' >> /etc/environment
+
+# add ssl lib path to env
+sudo -s
+echo 'LD_LIBRARY_PATH=/usr/local/ssl/lib:${LD_LIBRARY_PATH}' >> /etc/environment
+
+# reboot
+sudo reboot
 ```
 
 ### Python3.9 (from source)
@@ -43,7 +49,7 @@ cd cpython
 # check if you are in the 3.9 branch
 git branch
 
-./configure --prefix /usr/local/ --enable-optimizations
+./configure --prefix /usr/local/
 make
 sudo make altinstall
 
