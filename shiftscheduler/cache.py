@@ -5,7 +5,7 @@ import pickle
 from .config import c
 
 
-class CacheHandler():
+class CacheHandler:
     """ Caching for custom user data """
     data = {}
     ''' Ex.:
