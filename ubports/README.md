@@ -30,11 +30,9 @@ tar -xvzf openssl-1.1.1.tar.gz
 cd openssl-1.1.1/
 ./Configure linux-aarch64 --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
 make
-sudo make install
 
-# add ssl lib path to env
-sudo -s
-echo 'LD_LIBRARY_PATH=/usr/local/ssl/lib:${LD_LIBRARY_PATH}' >> /etc/environment
+# just link files to /lib
+sudo ln -s libcrypto.so libcrypto.so.1.1 libssl.so libssl.so.1.1 /lib/
 
 # reboot
 sudo reboot
